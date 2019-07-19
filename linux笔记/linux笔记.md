@@ -1,10 +1,59 @@
-# linux 笔记
 
+
+# linux 笔记
+- [linux 笔记](#linux-%E7%AC%94%E8%AE%B0)
+  - [常用命令](#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4)
+    - [用户和用户组管理](#%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86)
+    - [系统服务管理](#%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86)
+    - [ssh 服务安装与链接](#ssh-%E6%9C%8D%E5%8A%A1%E5%AE%89%E8%A3%85%E4%B8%8E%E9%93%BE%E6%8E%A5)
+    - [基础命令](#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4)
+    - [文件操作](#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C)
+    - [文件目录管理命令](#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4)
+    - [归档命令与文件搜索](#%E5%BD%92%E6%A1%A3%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2)
+  - [管道符、重定向和环境变量](#%E7%AE%A1%E9%81%93%E7%AC%A6%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
+    - [重定向](#%E9%87%8D%E5%AE%9A%E5%90%91)
+    - [管道符](#%E7%AE%A1%E9%81%93%E7%AC%A6)
+    - [通配符](#%E9%80%9A%E9%85%8D%E7%AC%A6)
+    - [转义字符](#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6)
+    - [环境变量(PATH 变量)](#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8FPATH-%E5%8F%98%E9%87%8F)
+  - [VIM 与 Shell Script](#VIM-%E4%B8%8E-Shell-Script)
+    - [Vim 编辑器](#Vim-%E7%BC%96%E8%BE%91%E5%99%A8)
+    - [shell 脚本](#shell-%E8%84%9A%E6%9C%AC)
+      - [变量与数组](#%E5%8F%98%E9%87%8F%E4%B8%8E%E6%95%B0%E7%BB%84)
+        - [变量](#%E5%8F%98%E9%87%8F)
+        - [字符串](#%E5%AD%97%E7%AC%A6%E4%B8%B2)
+        - [数组](#%E6%95%B0%E7%BB%84)
+      - [参数的接受](#%E5%8F%82%E6%95%B0%E7%9A%84%E6%8E%A5%E5%8F%97)
+      - [条件判断语句](#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5)
+      - [基本运算](#%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97)
+      - [echo 与 read 、printf 命令](#echo-%E4%B8%8E-read-printf-%E5%91%BD%E4%BB%A4)
+      - [test 命令](#test-%E5%91%BD%E4%BB%A4)
+      - [let 命令](#let-%E5%91%BD%E4%BB%A4)
+      - [流程控制语句](#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5)
+        - [if 分支语句](#if-%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5)
+        - [for 迭代语句](#for-%E8%BF%AD%E4%BB%A3%E8%AF%AD%E5%8F%A5)
+        - [while 循环语句](#while-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5)
+        - [until 语句](#until-%E8%AF%AD%E5%8F%A5)
+        - [case 语句](#case-%E8%AF%AD%E5%8F%A5)
+      - [函数](#%E5%87%BD%E6%95%B0)
+    - [文件包含](#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB)
+  - [Git 的使用](#Git-%E7%9A%84%E4%BD%BF%E7%94%A8)
+    - [安装](#%E5%AE%89%E8%A3%85)
+    - [配置](#%E9%85%8D%E7%BD%AE)
+    - [git 的工作流程](#git-%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B)
+    - [git 的工作区，暂存区，版本库](#git-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8C%BA%E6%9A%82%E5%AD%98%E5%8C%BA%E7%89%88%E6%9C%AC%E5%BA%93)
+    - [创建仓库](#%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93)
+    - [常用操作](#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C)
+    - [git 分支管理](#git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86)
+    - [git 提交历史](#git-%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2)
+    - [Git 远程仓库](#Git-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93)
+  - [awk 编程](#awk-%E7%BC%96%E7%A8%8B)
 ## 常用命令
 
 ### 用户和用户组管理
 
 **newgroup** 方便属于多组的用户切换所属的用户组
+**su username** 切换当前使用的用户,在Ubuntu等环境下需要sudo执行
 
 ### 系统服务管理
 
